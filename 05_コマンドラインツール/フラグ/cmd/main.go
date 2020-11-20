@@ -19,4 +19,5 @@ func main() {
 	// ここで実際に設定される
 	flag.Parse()
 	fmt.Println(strings.Repeat(*msg, n))
+	fmt.Println(flag.Args())
 }
