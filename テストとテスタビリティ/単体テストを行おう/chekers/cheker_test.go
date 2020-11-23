@@ -1,5 +1,7 @@
 package checkers
 
+// パッケージはcheckers_testのように分けられるなら分けた方が実際の利用時と同じ条件になるのでよい.
+
 import "testing"
 
 var patterns = []struct {
