@@ -18,7 +18,7 @@ import (
 func main() {
 	args := new(argsMgr)
 	args.parse()
-	fmt.Printf("convert files in %s(%s -> %s)", args.dirname, args.srcType, args.destType)
+	fmt.Printf("convert files in %s(%s -> %s)\n", args.dirname, args.srcType, args.destType)
 	if err := convert(args.srcType, args.destType, args.dirname); err != nil {
 		log.Fatal(err.Error())
 	}
@@ -35,7 +35,7 @@ func convert(s, d filetype, dir string) error {
 				return convert(s, d, path)
 			}
 			pos := strings.LastIndex(path, ".")
-			if path[pos:] == s.withExt() {
+			if pos != -1 && path[pos:] == s.withExt() {
 				return convertFile(s, d, path)
 			}
 			return nil
@@ -82,7 +82,7 @@ func (f *filetype) withExt() string {
 const (
 	fileTypePNG  filetype = "png"
 	fileTypeJPEG filetype = "jpeg"
-	fileTypeGIF  filetype = "gig"
+	fileTypeGIF  filetype = "gif"
 )
 
 type argsMgr struct {
