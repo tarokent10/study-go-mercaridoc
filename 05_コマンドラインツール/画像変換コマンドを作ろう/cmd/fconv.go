@@ -28,8 +28,8 @@ func convert(s, d filetype, dir string) error {
 	err := filepath.Walk(dir,
 		func(path string, info os.FileInfo, err error) error {
 			if err != nil {
-				// TODO ファイルmvした後もう一度walkでリネーム済ファイルを見に来てエラーになるので握りつぶしてる.謎.
-				return nil
+				// TODO ファイルmvした後もう一度walkでリネーム済ファイルを見に来てエラーになることがある.(階層あるdirを引数に指定すると起こる？)
+				return err
 			}
 			if dir != path && info.IsDir() {
 				// 自身もwalk対象となるのでチェックしないと無限ループになる
