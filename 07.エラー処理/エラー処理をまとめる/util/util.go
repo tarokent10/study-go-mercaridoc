@@ -21,12 +21,14 @@ func (s *RuneScanner) Scan() bool {
 	// はじめに全部がつっと読む.bufioでバッファ読み込みお試し.
 	if !s.done {
 		reader := bufio.NewReader(s.reader)
-		buf := make([]byte, 1024)
+		rbuf := make([]byte, 1024)
+		wbuf := make([]byte, 0, 1024)
+		pos := 0
 		for {
-			n, err := reader.Read(buf)
+			n, err := reader.Read(rbuf)
 			if n > 0 {
-				// byte↔rune変換：[]byte -> string -> []rune
-				s.buf = append(s.buf, []rune(string(buf[:n]))...)
+				wbuf = append(wbuf, rbuf[:n]...)
+				pos += n
 			}
 			if err != nil {
 				if err == io.EOF {
@@ -36,8 +38,8 @@ func (s *RuneScanner) Scan() bool {
 				s.err = err
 				return false
 			}
-
 		}
+		s.buf = []rune(string(wbuf[:pos]))
 	}
 	if s.eof {
 		return false
