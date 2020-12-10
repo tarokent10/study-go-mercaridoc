@@ -12,6 +12,7 @@ type RuneScanner struct {
 	current rune
 	idx     int
 	done    bool
+	eof     bool
 	reader  io.Reader
 }
 
@@ -29,6 +30,7 @@ func (s *RuneScanner) Scan() bool {
 			}
 			if err != nil {
 				if err == io.EOF {
+					s.done = true
 					break
 				}
 				s.err = err
@@ -37,11 +39,17 @@ func (s *RuneScanner) Scan() bool {
 
 		}
 	}
+	if s.eof {
+		return false
+	}
 
 	s.current = s.buf[s.idx]
 	s.idx++
 
-	return !(len(s.buf) == s.idx)
+	if s.idx == len(s.buf) {
+		s.eof = true
+	}
+	return (s.idx <= len(s.buf))
 }
 
 // Rune return current rune

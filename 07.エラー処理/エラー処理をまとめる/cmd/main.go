@@ -12,7 +12,7 @@ func main() {
 	s := util.NewRuneScanner(bf)
 	for s.Scan() {
 		rune := s.Rune()
-		fmt.Printf("%s ", string(rune))
+		fmt.Printf("%s", string(rune))
 	}
 	if err := s.Err(); err != nil {
 		log.Fatal(err.Error())
