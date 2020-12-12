@@ -6,31 +6,29 @@ import (
 	"github.com/pkg/errors"
 )
 
-type Stringer interface {
-	String() string
-}
-type SampleError struct {
-	error
+type sampleError struct {
+	s string
 }
 
-func (e *SampleError) String() string {
+func (e *sampleError) Error() string {
+	return e.s
+}
+func (e *sampleError) String() string {
 	return e.Error()
 }
 
 func main() {
-	// err := errors.Wrap(mkError("test"), ":wrap")
-	err := mkError("test")
-	fmt.Println(err)
-	if isStringer(err) {
-		fmt.Println(errors.Unwrap(err))
+	err := errors.Wrap(mkError("test"), ":wrap") // Wrap()時にはwithStackされる
+	if isStringer(errors.Cause(err)) {
+		// e := errors.Unwrap(err) //Unwrapはerr.Unwarp()を呼び出す。詳細情報用。Causeを返す訳ではない
+		fmt.Printf("%+v\n", err)
 	}
 
 }
 func isStringer(err error) bool {
-	s, ok := err.(Stringer)
-	print(s.String())
+	_, ok := err.(fmt.Stringer)
 	return ok
 }
 func mkError(s string) error {
-	return SampleError{errors.New(s)}
+	return errors.WithStack(&sampleError{s}) // stacktrace付与
 }
