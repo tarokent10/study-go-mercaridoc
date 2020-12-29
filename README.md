@@ -36,5 +36,6 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |ゴールーチンとチャネル|チャネルを使ってみよう基礎編1|2020/12/16|チャネル
 |ゴールーチンとチャネル|チャネルを使ってみよう基礎編2|2020/12/16|Selectチャネル,time.After
 |ゴールーチンとチャネル|チャネルを使ってみよう|2020/12/16|
-|ゴールーチンとチャネル|Syncパッケージ|2020/12/16|sync.lock,rwlock,waitgroup
-|ゴールーチンとチャネル|ErrorGroup|2020/12/16|errorgroup
+|ゴールーチンとチャネル|Syncパッケージ|2020/12/29|sync.lock,rwlock,waitgroup
+|ゴールーチンとチャネル|ErrorGroup|2020/12/29|errorgroup
+|ゴールーチンとチャネル|GoのConcurrencyモデル|2020/12/29|
