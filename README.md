@@ -39,3 +39,5 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |ゴールーチンとチャネル|Syncパッケージ|2020/12/29|sync.lock,rwlock,waitgroup
 |ゴールーチンとチャネル|ErrorGroup|2020/12/29|errorgroup
 |ゴールーチンとチャネル|GoのConcurrencyモデル|2020/12/29|
+|ゴールーチンとチャネル|semaphore|2020/12/29|セマフォパターンによる同時実行数制御
+|ゴールーチンとチャネル|定期処理|2020/12/29|time.NewTicker
