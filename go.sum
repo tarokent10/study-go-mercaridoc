@@ -6,3 +6,5 @@ github.com/tenntenn/greeting v1.0.0 h1:qiPrfPnqnfuzVqN3u1fnQdjh5YDQaN2YYB4mij22W
 github.com/tenntenn/greeting v1.0.0/go.mod h1:E3Ht/04nVnsgPJqBdZYg2BmvqQJmRPxhIv6qX4RyE9Y=
 github.com/tenntenn/greeting/v2 v2.1.0 h1:SD0Qx/kzr0MYDglhFPzNR4zk846+Z5T0Ol+Odr9Pk4c=
 github.com/tenntenn/greeting/v2 v2.1.0/go.mod h1:EkHY3zj6AR1MtKVmdhvooxb+zIUEihioi7gG93rsX5I=
+golang.org/x/sync v0.0.0-20201207232520-09787c993a3a h1:DcqTD9SDLc+1P/r1EmRBwnVsrOwW+kk2vWf9n+1sGhs=
+golang.org/x/sync v0.0.0-20201207232520-09787c993a3a/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=

@@ -3,7 +3,8 @@ go学習のアウトプット
 
 メルカリの[プログラミング言語Go完全入門](https://drive.google.com/file/d/1fLlg3Xw7CV680GQ65WkjxU5qX-PsApJg/view)をベースにした個人学習記録です.
 
-コーディング規約の参考：[uver-go](https://github.com/uber-go/guide) (未読)
+コーディング規約の参考：[uver-go](https://github.com/uber-go/guide) (未読)  
+Projectレイアウトの参考：[golang-standards](https://github.com/golang-standards/project-layout)（未読）
 
 |章|お題|作成日|習得要素|備考
 :--|:--|:--|:--|:--
@@ -35,3 +36,5 @@ go学習のアウトプット
 |ゴールーチンとチャネル|チャネルを使ってみよう基礎編1|2020/12/16|チャネル
 |ゴールーチンとチャネル|チャネルを使ってみよう基礎編2|2020/12/16|Selectチャネル,time.After
 |ゴールーチンとチャネル|チャネルを使ってみよう|2020/12/16|
+|ゴールーチンとチャネル|Syncパッケージ|2020/12/16|sync.lock,rwlock,waitgroup
+|ゴールーチンとチャネル|ErrorGroup|2020/12/16|errorgroup

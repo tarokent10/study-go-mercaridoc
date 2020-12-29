@@ -7,6 +7,7 @@ func main() {
 	println(h.string())
 }
 
+// Hex is hex
 type Hex int
 
 func (h Hex) string() string {
