@@ -43,3 +43,5 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |ゴールーチンとチャネル|定期処理|2020/12/29|time.NewTicker
 |ゴールーチンとチャネル|closeによるブロードキャスト|2020/12/30|Close
 |ゴールーチンとチャネル|context|2020/12/30|context
+|ゴールーチンとチャネル|context2|2020/12/30|range,context.withvalue
+|ゴールーチンとチャネル|タイピングゲームを作ろう|2020/12/30|
