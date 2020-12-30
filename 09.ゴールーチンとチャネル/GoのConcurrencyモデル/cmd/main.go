@@ -27,6 +27,6 @@ func consumer() {
 func main() {
 	go producer()
 	go consumer()
-	<-done
+	<-done // 1:1 or 1:nで子チャンネルから受ける使い方が多い？
 	println("done!!")
 }
