@@ -42,3 +42,4 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |ゴールーチンとチャネル|semaphore|2020/12/29|セマフォパターンによる同時実行数制御
 |ゴールーチンとチャネル|定期処理|2020/12/29|time.NewTicker
 |ゴールーチンとチャネル|closeによるブロードキャスト|2020/12/30|Close
+|ゴールーチンとチャネル|context|2020/12/30|context
