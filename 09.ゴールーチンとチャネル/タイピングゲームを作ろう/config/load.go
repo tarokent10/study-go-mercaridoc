@@ -2,22 +2,33 @@ package config
 
 // Configs is config
 type Configs struct {
-	env   Env
-	texts Texts
+	Env   Env
+	Texts Texts
+}
+
+// Env os env info
+type Env struct {
+	TimeLimit     int
+	WordsFilePath string
+}
+
+// Texts is input texts
+type Texts struct {
+	Words []string
 }
 
 // Load load config and env
-func Load() (*Configs, error) {
+func Load() (Configs, error) {
 
 	env := loadEnv()
 	texts, err := loadWords(env)
 	if err != nil {
-		return nil, err
+		return *new(Configs), err
 	}
 	c := &Configs{
-		env:   *env,
-		texts: *texts,
+		Env:   *env,
+		Texts: *texts,
 	}
 	// fmt.Printf("config loaded: %v\n", c)
-	return c, nil
+	return *c, nil
 }

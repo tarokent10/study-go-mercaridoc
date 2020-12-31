@@ -6,13 +6,6 @@ import (
 	"os"
 )
 
-type (
-	// Texts is input texts
-	Texts struct {
-		words []string
-	}
-)
-
 func loadWords(e *Env) (*Texts, error) {
 	texts := &Texts{}
 	wd, err := os.Getwd()

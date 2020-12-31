@@ -7,9 +7,11 @@ import (
 )
 
 func main() {
-	_, err := config.Load()
+	c, err := config.Load()
 	if err != nil {
 		log.Fatal(err)
 	}
-	core.GameStart()
+	if err := core.GameStart(c); err != nil {
+		log.Fatal(err)
+	}
 }

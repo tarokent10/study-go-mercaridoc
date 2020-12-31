@@ -5,12 +5,6 @@ import (
 	"strconv"
 )
 
-// Env os env info
-type Env struct {
-	timeLimit     int
-	wordsFilePath string
-}
-
 func loadEnv() *Env {
 	env := &Env{
 		// default
