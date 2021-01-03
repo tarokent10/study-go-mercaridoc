@@ -27,7 +27,8 @@ func execute(c config.Configs) error {
 	timerChan := time.After(time.Second * time.Duration(c.Env.TimeLimit))
 	// TODO ゲームの結果をワーカーチャネルで(processScoreQueが0になるまでWait)
 	doneQue := make(chan doneWord, 1024)
-	scoreChan := consumeDoneQue(ctx, doneQue)
+	endGameChan := game(ctx, c, doneQue)
+	scoreChan := consumeDoneQue(endGameChan, doneQue)
 	// TODO configs.wordsからランダムに出題、判定結果はワーカーチャネルに放り込む。制限時間経過で終了.タイムアップまでチャネルに書き込み可能.
 	waitAndTimeup(timerChan, timeup)
 	showResult(c, getScore(scoreChan))

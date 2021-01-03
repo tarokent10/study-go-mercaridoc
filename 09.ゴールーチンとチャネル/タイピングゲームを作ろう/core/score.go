@@ -1,7 +1,6 @@
 package core
 
 import (
-	"context"
 	"time"
 )
 
@@ -24,20 +23,20 @@ func newDoneWord(word string, time time.Duration) doneWord {
 
 // 結果処理
 // タイムアップまで集計を続ける。タイムアップを検知したらキューに積まれた結果を処理してチャネルを閉じる
-func consumeDoneQue(ctx context.Context, doneQue chan doneWord) chan score {
+func consumeDoneQue(endGameChan chan struct{}, doneQue chan doneWord) chan score {
 	scoreChan := make(chan score, 0)
-	go func(ctx context.Context, doneQue chan doneWord) {
+	go func(endGameChan chan struct{}, doneQue chan doneWord) {
 		defer close(doneQue)
 		s := &score{dones: make([]doneWord, 0, 0)}
+		var isGameEnd bool = false
 		for {
-			var isTimeup bool = false
 			select {
 			case t := <-doneQue:
 				s.addDoneWord(t)
-			case <-ctx.Done():
-				isTimeup = true
+			case <-endGameChan:
+				isGameEnd = true
 			}
-			if isTimeup {
+			if isGameEnd {
 				break
 			}
 		}
@@ -46,6 +45,6 @@ func consumeDoneQue(ctx context.Context, doneQue chan doneWord) chan score {
 			s.addDoneWord(<-doneQue)
 		}
 		scoreChan <- *s
-	}(ctx, doneQue)
+	}(endGameChan, doneQue)
 	return scoreChan
 }
