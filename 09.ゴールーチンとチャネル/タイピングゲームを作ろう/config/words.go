@@ -12,7 +12,7 @@ func loadWords(e *Env) (*Texts, error) {
 	if err != nil {
 		return nil, err
 	}
-	f, err := os.Open(fmt.Sprintf("%s/%s", wd, e.wordsFilePath))
+	f, err := os.Open(fmt.Sprintf("%s/%s", wd, e.WordsFilePath))
 	if err != nil {
 		return nil, err
 	}
@@ -21,6 +21,6 @@ func loadWords(e *Env) (*Texts, error) {
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
 	}
-	texts.words = lines
+	texts.Words = lines
 	return texts, nil
 }

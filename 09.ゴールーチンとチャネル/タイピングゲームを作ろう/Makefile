@@ -1,4 +1,4 @@
-SEC_TIME_LIMIT:= 60
+SEC_TIME_LIMIT:= 5
 WORDS_FILE_PATH:=config/words/words.txt
 PROGRAM:= cmd/main.go
 run: $(PROGRAM)
