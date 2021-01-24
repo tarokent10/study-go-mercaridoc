@@ -19,29 +19,24 @@ func game(ctx context.Context, c config.Configs, doneQue chan doneWord) chan str
 		var ans string
 		for {
 			//出題&結果を突っ込む
-			// TODO 誤答時にタイムアップ対応と、平均回答時間の計測
+			// TODO 平均回答時間の計測
 			if isCorrect {
-				q = selectWord(c)
+				q = nextWord(c)
 			}
-			ans = io.ReadStdin(q)
-			if q == ans {
-				isCorrect = true
-			} else {
-				isCorrect = false
-				fmt.Printf("間違いです。再入力してください。%s:%s\n", q, ans)
-				continue
-			}
-			d := &doneWord{
-				word: q,
-			}
-			doneQue <- *d
-			select {
-			case <-ctx.Done():
-				isFinish = true
-			default:
-			}
-			if isFinish {
+			if ans, isFinish = io.ReadStdinWithContext(ctx, q); isFinish {
 				break
+			} else {
+				if q == ans {
+					isCorrect = true
+				} else {
+					isCorrect = false
+					fmt.Printf("間違いです。再入力してください。%s:%s\n", q, ans)
+					continue
+				}
+				d := &doneWord{
+					word: q,
+				}
+				doneQue <- *d
 			}
 		}
 		finishCh <- struct{}{}
@@ -49,7 +44,7 @@ func game(ctx context.Context, c config.Configs, doneQue chan doneWord) chan str
 	return finishCh
 }
 
-func selectWord(c config.Configs) string {
+func nextWord(c config.Configs) string {
 	words := c.Texts.Words
 	return words[rand.Intn(len(words)+1)]
 }
