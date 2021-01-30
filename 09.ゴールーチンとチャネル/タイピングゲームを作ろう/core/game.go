@@ -6,6 +6,7 @@ import (
 	"math/rand"
 	"study-go--mercaridoc/09.ゴールーチンとチャネル/タイピングゲームを作ろう/config"
 	"study-go--mercaridoc/09.ゴールーチンとチャネル/タイピングゲームを作ろう/io"
+	"time"
 )
 
 func game(ctx context.Context, c config.Configs, doneQue chan doneWord) chan struct{} {
@@ -17,10 +18,11 @@ func game(ctx context.Context, c config.Configs, doneQue chan doneWord) chan str
 		var isCorrect bool = true
 		var q string
 		var ans string
+		var stime time.Time
 		for {
 			//出題&結果を突っ込む
-			// TODO 平均回答時間の計測
 			if isCorrect {
+				stime = time.Now()
 				q = nextWord(c)
 			}
 			if ans, isFinish = io.ReadStdinWithContext(ctx, q); isFinish {
@@ -33,8 +35,10 @@ func game(ctx context.Context, c config.Configs, doneQue chan doneWord) chan str
 					fmt.Printf("間違いです。再入力してください。%s:%s\n", q, ans)
 					continue
 				}
+				duration := time.Now().Sub(stime)
 				d := &doneWord{
 					word: q,
+					time: duration,
 				}
 				doneQue <- *d
 			}

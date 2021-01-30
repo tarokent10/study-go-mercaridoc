@@ -1,6 +1,7 @@
 package core
 
 import (
+	"math"
 	"time"
 )
 
@@ -16,6 +17,14 @@ type (
 
 func (s *score) addDoneWord(d doneWord) {
 	s.dones = append(s.dones, d)
+}
+func (s *score) averageTime() float64 {
+	var sumMin float64
+	for _, done := range s.dones {
+		sumMin += done.time.Seconds()
+	}
+	return math.Round((sumMin/float64(len(s.dones)))*100) / 100
+
 }
 func newDoneWord(word string, time time.Duration) doneWord {
 	return *&doneWord{word, time}
