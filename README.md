@@ -45,3 +45,5 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |ゴールーチンとチャネル|context|2020/12/30|context
 |ゴールーチンとチャネル|context2|2020/12/30|range,context.withvalue
 |ゴールーチンとチャネル|タイピングゲームを作ろう|2020/12/30|
+|ゴールーチンとチャネル|分割ダウンローダを作ろう||いったんskip
+|HTTPサーバとクライアント|Hello,HTTPサーバ|2021/02/03|http server
