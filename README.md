@@ -47,3 +47,4 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |ゴールーチンとチャネル|タイピングゲームを作ろう|2020/12/30|
 |ゴールーチンとチャネル|分割ダウンローダを作ろう||いったんskip
 |HTTPサーバとクライアント|Hello,HTTPサーバ|2021/02/03|http server
+|HTTPサーバとクライアント|おみくじアプリの作成|2021/02/03|http server
