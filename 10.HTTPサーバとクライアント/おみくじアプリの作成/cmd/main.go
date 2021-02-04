@@ -32,11 +32,16 @@ func (r result) value() string {
 type OmikujiServer struct{}
 
 func (o OmikujiServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.FormValue("msg"))
+	w.Header().Set("Contents-Type", "application/json; charset=utf-8")
 	fmt.Fprint(w, result(rand.Intn(6)).value())
 }
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	http.Handle("/", &OmikujiServer{})
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.Error(w, "internal server error", http.StatusInternalServerError)
+	})
+	http.Handle("/omikuji", &OmikujiServer{})
 	http.ListenAndServe(":8080", nil)
 }
