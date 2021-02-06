@@ -53,3 +53,4 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |HTTPサーバとクライアント|テンプレートエンジンの使用|2021/02/06|template
 |HTTPサーバとクライアント|httpserverのテスト|2021/02/06|http.NewRecorder,http.NewRequest
 |HTTPサーバとクライアント|リクエストを送ってみよう|2021/02/06|
+|データベース|レコードのスキャン|2021/02/06|
