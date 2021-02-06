@@ -3,7 +3,7 @@ go学習のアウトプット
 
 メルカリの[プログラミング言語Go完全入門](https://drive.google.com/file/d/1fLlg3Xw7CV680GQ65WkjxU5qX-PsApJg/view)をベースにした個人学習記録です.
 
-コーディング規約の参考：[uver-go](https://github.com/uber-go/guide) (未読)  
+コーディング規約の参考：[uver-go](https://github.com/uber-go/guide)  
 Projectレイアウトの参考：[golang-standards](https://github.com/golang-standards/project-layout)（未読）
 
 |章|お題|作成日|習得要素|備考
@@ -50,3 +50,4 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |HTTPサーバとクライアント|おみくじアプリの作成|2021/02/03|http server
 |HTTPサーバとクライアント|jsonエンコード|2021/02/04|json encode
 |HTTPサーバとクライアント|リクエストパラメタの使用|2021/02/04|
+|HTTPサーバとクライアント|テンプレートエンジンの使用|2021/02/06|
