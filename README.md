@@ -50,4 +50,6 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |HTTPサーバとクライアント|おみくじアプリの作成|2021/02/03|http server
 |HTTPサーバとクライアント|jsonエンコード|2021/02/04|json encode
 |HTTPサーバとクライアント|リクエストパラメタの使用|2021/02/04|
-|HTTPサーバとクライアント|テンプレートエンジンの使用|2021/02/06|
+|HTTPサーバとクライアント|テンプレートエンジンの使用|2021/02/06|template
+|HTTPサーバとクライアント|httpserverのテスト|2021/02/06|http.NewRecorder,http.NewRequest
+|HTTPサーバとクライアント|リクエストを送ってみよう|2021/02/06|
