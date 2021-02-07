@@ -54,3 +54,4 @@ Projectレイアウトの参考：[golang-standards](https://github.com/golang-s
 |HTTPサーバとクライアント|httpserverのテスト|2021/02/06|http.NewRecorder,http.NewRequest
 |HTTPサーバとクライアント|リクエストを送ってみよう|2021/02/06|
 |データベース|レコードのスキャン|2021/02/06|
+|データベース|電話帳を作ろう|2021/02/07|
